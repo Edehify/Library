@@ -7,8 +7,25 @@ function Book(title, author, pages, read) {
     this.read = read;
 }
 
+// function to toggle the read status of a book
+Book.prototype.toggleRead = function() {
+    this.read = !this.read;
+}
+// function to add a book to the library array
+function addBookToLibrary(title, author, pages, read) {
+    const newBook = new Book(title, author, pages, read);
+    myLibrary.push(newBook);
+    displayBook(newBook);
+}
+
 // creating an empty array to store the books
 const myLibrary = [];
+const bookDialog = document.getElementById("book-dialog");
+const addNewBook = document.getElementById("new-book");
+addNewBook.addEventListener("click", () => {
+    bookDialog.showModal();
+});
+
 
 // testing the Book constructor function
 
@@ -30,13 +47,19 @@ bookForm.addEventListener("submit", (event) => {
     // convert the pages input value to a number
     const pages = Number(document.getElementById("pages").value);
     const read = document.getElementById("read").checked;
-
-const newBook = new Book(title, author, pages, read);
-myLibrary.push(newBook);
-displayBook(newBook);
+// add the new book to the library array
+    addBookToLibrary(title, author, pages, read);
+// clear the form inputs after submission
+bookDialog.close();
 clearForm();
 
-});  
+}); 
+
+const cancelForm = document.getElementById("cancel-book-form");
+cancelForm.addEventListener("click", () => {
+    bookDialog.close();
+    clearForm();
+});
 
 // function to clear the form inputs after submission
 function clearForm() {
@@ -63,7 +86,7 @@ function displayBook(book) {
     const readButton = document.createElement("button");
     readButton.textContent = book.read ? "Mark as Not Read" : "Mark as Read";
     readButton.addEventListener("click", () => {
-        book.read = !book.read;  
+        book.toggleRead();  
         // update display text for read status
         readElement.textContent = book.read ? "Read" : "Not Read";       
         // Update the button text
@@ -76,10 +99,11 @@ function displayBook(book) {
     deleteButton.addEventListener("click", () => {
         // remove the book from the library array
         const index = myLibrary.findIndex((item) => item.id === book.id);
+        if(index !== -1) {
             myLibrary.splice(index, 1);
             // remove the book card from the DOM
             libraryContainer.removeChild(bookCard);
-    
+        }
     }); 
     bookCard.appendChild(titleElement);
     bookCard.appendChild(authorElement);
@@ -93,7 +117,7 @@ function displayBook(book) {
 
 
 // get library id in DOM
-libraryContainer = document.getElementById("library");
+constlibraryContainer = document.getElementById("library");
 
 // loop through the library array and create a card for each book
 myLibrary.forEach((book) => {
