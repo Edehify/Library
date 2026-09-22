@@ -76,7 +76,7 @@ label {
 
  #library {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
     gap: 20px;
     margin-top: 20px;
  }
@@ -97,4 +97,45 @@ label {
     border : none;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    width: 300px;
+    max-width: 90%;
+}
+
+dialog::backdrop {
+    background: rgba(0, 0, 0, 0.5);
+}
+
+.form-buttons button, .button-container button {
+    margin-bottom: 0;
+}
+
+.form-buttons, .button-container {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+}
+
+#cancel-book-form {
+    background-color: #E8DCC4;
+    color: #333;
+}
+
+#cancel-book-form:hover {
+    background-color: #D6C7A8;
+}
+
+.delete-button {
+    background-color: #D9534F;
+    color: #FFFFFF;
+}
+
+.delete-button:hover {
+    background-color: #B52B27;
+}
+
+.button-container button {
+    flex: 1;
+    padding: 8px 12px;
+
 }

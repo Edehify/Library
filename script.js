@@ -82,6 +82,11 @@ function displayBook(book) {
     const readElement = document.createElement("p");
     readElement.textContent = book.read ? "Read" : "Not Read";
 
+    // create a div to hold the buttons
+    const buttonContainer = document.createElement("div");
+    buttonContainer.classList.add("button-container");
+   
+
     // create a Read/Not Read button for each book card
     const readButton = document.createElement("button");
     readButton.textContent = book.read ? "Mark as Not Read" : "Mark as Read";
@@ -95,6 +100,8 @@ function displayBook(book) {
     // create delete button for each book card
     const deleteButton = document.createElement("button");
     deleteButton.textContent = "Delete";
+    // add claass to delete button
+    deleteButton.classList.add("delete-button");
 
     deleteButton.addEventListener("click", () => {
         // remove the book from the library array
@@ -109,8 +116,9 @@ function displayBook(book) {
     bookCard.appendChild(authorElement);
     bookCard.appendChild(pageElement);
     bookCard.appendChild(readElement);
-    bookCard.appendChild(readButton);
-    bookCard.appendChild(deleteButton);
+    buttonContainer.appendChild(readButton);
+    buttonContainer.appendChild(deleteButton);
+    bookCard.appendChild(buttonContainer);
     libraryContainer.appendChild(bookCard);
 }
 
