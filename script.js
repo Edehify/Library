@@ -117,7 +117,7 @@ function displayBook(book) {
 
 
 // get library id in DOM
-constlibraryContainer = document.getElementById("library");
+const libraryContainer = document.getElementById("library");
 
 // loop through the library array and create a card for each book
 myLibrary.forEach((book) => {

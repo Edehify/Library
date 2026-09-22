@@ -70,11 +70,6 @@ label {
     margin-bottom: 2px;
 }
 
-div {
-    font-display: flex;
-    align-items : 8px;
-    gap: 8px;
-}
  input[type="checkbox"] {
     cursor: pointer;
  }
@@ -97,3 +92,9 @@ div {
     align-items: center;
     text-align: center;
  }
+
+ dialog {
+    border : none;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
