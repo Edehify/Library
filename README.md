@@ -28,8 +28,8 @@ For more information about this project and my learning journey, please visit:
 ## What I Learned
 
 - How to use JavaScript constructors to create objects.
-- How the `this` keyword works inside constructors and methods.
-- How prototypes allow objects to share methods.
+- How the `this` keyword works inside class and methods.
+- How class prototypes allow objects to share methods.
 - How to create and manipulate arrays of objects.
 - How to use `crypto.randomUUID()` to generate unique IDs.
 - How to manipulate the DOM with JavaScript.
@@ -46,11 +46,15 @@ For more information about this project and my learning journey, please visit:
 
 ## Project Structure
 
-## Project Structure
-
-- `index.html` — Contains the structure of the Library application.
-- `style.css` — Contains the styling and layout of the application.
-- `script.js` — Contains the JavaScript functionality, including adding, displaying, updating, and deleting books.
+```text
+Library/
+├── index.html       # Page structure and book form
+├── style.css        # Application styles and layout
+├── script.js        # Book data, interactions, and DOM updates
+├── image/
+│   └── library.png  # Screenshot used in this README
+└── README.md        # Project overview and documentation
+```
 
 ---
 
@@ -84,5 +88,4 @@ Edeh Maligue Ifeanyi
 ## Screenshot
 
 ![Project Screenshot](.image/library.png)
-
 

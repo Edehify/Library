@@ -1,16 +1,20 @@
-// constructor function for the book object
-function Book(title, author, pages, read) {
-    this.id = crypto.randomUUID();
-    this.title = title;
-    this.author = author;
-    this.pages = pages;
-    this.read = read;
+// Create class for the book object
+class Book {
+    constructor(title, author, pages, read) {
+        this.id = crypto.randomUUID();
+        this.title = title;
+        this.author = author;
+        this.pages = pages;
+        this.read = read;
+    }
+  // Method to toggle the read status of a book
+    toggleRead() {
+        this.read = !this.read;
+    }  
+
 }
 
-// function to toggle the read status of a book
-Book.prototype.toggleRead = function() {
-    this.read = !this.read;
-}
+
 // function to add a book to the library array
 function addBookToLibrary(title, author, pages, read) {
     const newBook = new Book(title, author, pages, read);
@@ -27,7 +31,7 @@ addNewBook.addEventListener("click", () => {
 });
 
 
-// testing the Book constructor function
+// testing the Book class function
 
 const book1 = new Book("The Great Gatsby", "F. Scott Fitzgerald", 180, true);
 const book2 = new Book("To Kill a Mockingbird", "Harper Lee", 281, false);
